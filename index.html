@@ -1,50 +1,294 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pots &amp; Possibilities — Get Involved</title>
+<style>
+  :root {
+    --garden: #3D6B4F;
+    --saffron: #D4960F;
+    --fig: #6B3A4E;
+    --paprika: #C4472A;
+    --oat: #F7F3EC;
+    --cast-iron: #2C2924;
+  }
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+  body {
+    margin: 0;
+    padding: 40px 16px;
+    background: var(--oat);
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    color: var(--cast-iron);
+  }
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
+  .form-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 40px 36px;
+    box-shadow: 0 1px 3px rgba(44, 41, 36, 0.08);
+  }
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbm00000k3lHg" method="POST">
+  .brand-header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
 
-<input type=hidden name="oid" value="00Dbm00000k3lHg">
-<input type=hidden name="retURL" value="http://google.com">
+  .brand-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 26px;
+    color: #3D6B4F;
+    margin: 0;
+  }
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="cyndie.wandia@offprem.tech">                                     -->
-<!--  ----------------------------------------------------------------------  -->
+  .brand-underline {
+    width: 60px;
+    height: 3px;
+    background: var(--saffron);
+    margin: 10px auto 16px;
+    border: none;
+  }
 
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+  .tagline {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--cast-iron);
+    text-align: center;
+    margin: 0 0 32px;
+  }
 
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+  .field {
+    margin-bottom: 20px;
+  }
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--cast-iron);
+    margin-bottom: 6px;
+  }
 
-<label for="mobile">Mobile</label><input  id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
+  .required-mark {
+    color: var(--paprika);
+  }
 
-Opt In: Marketing Communications:<input  id="00Nbm00002NEWrN" name="00Nbm00002NEWrN" type="checkbox" value="1" /><br>
+  .interest-error {
+    display: none;
+    font-size: 13px;
+    color: var(--paprika);
+    margin: -10px 0 20px;
+  }
 
-Opt In: Events Communications:<input  id="00Nbm00002NEX5t" name="00Nbm00002NEX5t" type="checkbox" value="1" /><br>
+  .field input[type="text"],
+  .field input[type="email"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    color: var(--cast-iron);
+    border: 1px solid #D9D4C8;
+    border-radius: 6px;
+    background: var(--oat);
+  }
 
-Interested in Giving:<input  id="00Nbm00002NEW50" name="00Nbm00002NEW50" type="checkbox" value="1" /><br>
+  .field input[type="text"]:focus,
+  .field input[type="email"]:focus {
+    outline: none;
+    border-color: var(--garden);
+    background: #FFFFFF;
+  }
 
-Opt In: Advocacy Communications:<input  id="00Nbm00002NEXDx" name="00Nbm00002NEXDx" type="checkbox" value="1" /><br>
+  fieldset {
+    border: 1px solid #E4DFD3;
+    border-radius: 8px;
+    padding: 16px 18px 14px;
+    margin: 0 0 24px;
+  }
 
-Opt In: Newsletter:<input  id="00Nbm00002NEXKP" name="00Nbm00002NEXKP" type="checkbox" value="1" /><br>
+  legend {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--garden);
+    padding: 0 6px;
+  }
 
-Interested in Volunteering:<input  id="00Nbm00002NEWxp" name="00Nbm00002NEWxp" type="checkbox" value="1" /><br>
+  .fieldset-note {
+    font-size: 12px;
+    color: #6B6559;
+    margin: -6px 0 12px;
+  }
 
-Interested in Programs &amp; Services:<input  id="00Nbm00002NEWzR" name="00Nbm00002NEWzR" type="checkbox" value="1" /><br>
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+  }
 
-<input type="submit" name="submit">
+  .checkbox-row input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--garden);
+    flex-shrink: 0;
+  }
 
-</form>
+  .checkbox-row label {
+    font-size: 14px;
+    color: var(--cast-iron);
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 13px 0;
+    background: var(--fig);
+    color: #FFFFFF;
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: #5A2F41;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-card">
+
+  <div class="brand-header">
+    <h1>Pots &amp; Possibilities</h1>
+  </div>
+  <hr class="brand-underline">
+  <p class="tagline">"When a hot meal becomes a new beginning."</p>
+
+  <!-- ---------------------------------------------------------------------- -->
+  <!-- NOTE: Please add the following <META> element to your page <HEAD>.     -->
+  <!-- If necessary, please modify the charset parameter to specify the       -->
+  <!-- character set of your HTML page.                                      -->
+  <!-- ---------------------------------------------------------------------- -->
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+  <!-- ---------------------------------------------------------------------- -->
+  <!-- NOTE: Please add the following <FORM> element to your page.            -->
+  <!-- ---------------------------------------------------------------------- -->
+  <form id="webToLeadForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbm00000k3lHg" method="POST">
+    <input type=hidden name="oid" value="00Dbm00000k3lHg">
+    <input type=hidden name="retURL" value="http://google.com">
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- NOTE: These fields are optional debugging elements. Please uncomment   -->
+    <!-- these lines if you wish to test in debug mode.                        -->
+    <!-- <input type="hidden" name="debug" value=1> -->
+    <!-- <input type="hidden" name="debugEmail" value="cyndie.wandia@offprem.tech"> -->
+    <!-- ---------------------------------------------------------------------- -->
+
+    <div class="field">
+      <label for="first_name">First Name <span class="required-mark">*</span></label>
+      <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required>
+    </div>
+
+    <div class="field">
+      <label for="last_name">Last Name <span class="required-mark">*</span></label>
+      <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span class="required-mark">*</span></label>
+      <input id="email" maxlength="80" name="email" size="20" type="email" required>
+    </div>
+
+    <div class="field">
+      <label for="mobile">Mobile</label>
+      <input id="mobile" maxlength="40" name="mobile" size="20" type="text">
+    </div>
+
+    <fieldset>
+      <legend>Communication preferences</legend>
+      <p class="fieldset-note">Choose how we can stay in touch.</p>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEWrN" name="00Nbm00002NEWrN" type="checkbox" value="1">
+        <label for="00Nbm00002NEWrN">Opt In: Marketing Communications</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEX5t" name="00Nbm00002NEX5t" type="checkbox" value="1">
+        <label for="00Nbm00002NEX5t">Opt In: Events Communications</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEXDx" name="00Nbm00002NEXDx" type="checkbox" value="1">
+        <label for="00Nbm00002NEXDx">Opt In: Advocacy Communications</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEXKP" name="00Nbm00002NEXKP" type="checkbox" value="1">
+        <label for="00Nbm00002NEXKP">Opt In: Newsletter</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Areas of interest</legend>
+      <p class="fieldset-note">Tell us what you'd like to learn more about.</p>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEW50" name="00Nbm00002NEW50" type="checkbox" value="1">
+        <label for="00Nbm00002NEW50">Interested in Giving</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEWxp" name="00Nbm00002NEWxp" type="checkbox" value="1">
+        <label for="00Nbm00002NEWxp">Interested in Volunteering</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="00Nbm00002NEWzR" name="00Nbm00002NEWzR" type="checkbox" value="1">
+        <label for="00Nbm00002NEWzR">Interested in Programs &amp; Services</label>
+      </div>
+    </fieldset>
+
+    <p id="interestError" class="interest-error">Please select at least one communication preference or area of interest.</p>
+
+    <button type="submit" name="submit">Submit</button>
+  </form>
+
+</div>
+
+<script>
+  document.getElementById('webToLeadForm').addEventListener('submit', function (e) {
+    var checkboxes = this.querySelectorAll('input[type="checkbox"]');
+    var atLeastOneChecked = Array.prototype.some.call(checkboxes, function (cb) {
+      return cb.checked;
+    });
+    var errorMsg = document.getElementById('interestError');
+
+    if (!atLeastOneChecked) {
+      e.preventDefault();
+      errorMsg.style.display = 'block';
+      checkboxes[0].focus();
+    } else {
+      errorMsg.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
