@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Pots &amp; Possibilities — Get Involved</title>
-<style>
+<!-- Customized, added CSS -->
+  <style>
   :root {
     --garden: #3D6B4F;
     --saffron: #D4960F;
@@ -190,10 +191,11 @@
   <!-- NOTE: Please add the following <FORM> element to your page.            -->
   <!-- ---------------------------------------------------------------------- -->
   <form id="webToLeadForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbm00000k3lHg" method="POST">
-<input type=hidden name="oid" value="00Dbm00000k3lHg">
+<!-- Customized, added hidden field Lead Source and Company -->
+    <input type=hidden name="oid" value="00Dbm00000k3lHg">
 <input type=hidden name="retURL" value="http://google.com">
 <input type="hidden" name="lead_source" value="Web">
-
+<input type="hidden" name="company" value="Individual">
     <!-- ---------------------------------------------------------------------- -->
     <!-- NOTE: These fields are optional debugging elements. Please uncomment   -->
     <!-- these lines if you wish to test in debug mode.                        -->
@@ -272,7 +274,7 @@
   </form>
 
 </div>
-
+<!-- Customized, Added JS to require Interest or Communication Preference -->
 <script>
   document.getElementById('webToLeadForm').addEventListener('submit', function (e) {
     var checkboxes = this.querySelectorAll('input[type="checkbox"]');
